@@ -1,0 +1,25 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(209,127,247,1);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(157,214,252,1);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#gradient)" opacity="0.1"/>
+  
+  <!-- Main icon - stylized "TT" with token counting visual -->
+  <!-- T letter (left) -->
+  <rect x="100" y="150" width="140" height="40" fill="url(#gradient)" rx="8"/>
+  <rect x="150" y="190" width="40" height="220" fill="url(#gradient)" rx="8"/>
+  
+  <!-- T letter (right) -->
+  <rect x="272" y="150" width="140" height="40" fill="url(#gradient)" rx="8"/>
+  <rect x="322" y="190" width="40" height="220" fill="url(#gradient)" rx="8"/>
+  
+  <!-- Token count bars (decorative elements) -->
+  <rect x="100" y="440" width="80" height="8" fill="url(#gradient)" rx="4" opacity="0.7"/>
+  <rect x="190" y="440" width="120" height="8" fill="url(#gradient)" rx="4" opacity="0.7"/>
+  <rect x="320" y="440" width="92" height="8" fill="url(#gradient)" rx="4" opacity="0.7"/>
+</svg>

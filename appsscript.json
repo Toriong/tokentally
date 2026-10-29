@@ -1,0 +1,28 @@
+{
+  "timeZone": "America/New_York",
+  "dependencies": {},
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/documents.currentonly",
+    "https://www.googleapis.com/auth/script.container.ui"
+  ],
+  "addOns": {
+    "common": {
+      "name": "TokenTally",
+      "logoUrl": "YOUR_LOGO_URL_HERE",
+      "layoutProperties": {
+        "primaryColor": "#D17FF7",
+        "secondaryColor": "#9DD6FC"
+      },
+      "homepageTrigger": {
+        "runFunction": "showSidebar"
+      }
+    },
+    "docs": {
+      "createSettingsTrigger": {
+        "runFunction": "onOpen"
+      }
+    }
+  }
+}
