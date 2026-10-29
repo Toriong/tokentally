@@ -434,15 +434,7 @@
   </div>
   
   <script>
-    // Simplified tokenization for demo - production would use full js-tiktoken bundled
-    // This provides reasonable estimates for the different encodings
-    
-    const CHAR_TO_TOKEN_RATIOS = {
-      o200k_base: 0.25,      // ~4 chars per token
-      cl100k_base: 0.25,     // ~4 chars per token
-      gemini: 0.22,          // ~4.5 chars per token (slightly more efficient)
-      claude: 0.23           // ~4.3 chars per token
-    };
+    // TOKENIZER_BUNDLE_PLACEHOLDER - Will be replaced with bundled js-tiktoken
     
     let settings = null;
     let documentData = null;
@@ -513,7 +505,7 @@
       google.script.run
         .withSuccessHandler(function(selection) {
           const text = selection || documentData.fullText;
-          const tokens = estimateTokens(text, settings.encoding);
+          const tokens = countTokens(text, settings.encoding);
           const isEstimate = settings.encoding === 'gemini' || settings.encoding === 'claude';
           
           document.getElementById('tokenCount').textContent = tokens.toLocaleString();
@@ -558,7 +550,7 @@
       
       let html = '';
       for (const heading of documentData.headings) {
-        const tokens = estimateTokens(heading.content, settings.encoding);
+        const tokens = countTokens(heading.content, settings.encoding);
         html += `
           <div class="heading-item">
             <div class="heading-text level-${heading.level}">${escapeHtml(heading.text)}</div>
@@ -568,15 +560,6 @@
       }
       
       list.innerHTML = html;
-    }
-    
-    function estimateTokens(text, encoding) {
-      if (!text) return 0;
-      
-      // Simple estimation based on character count
-      // Production version would use actual js-tiktoken library
-      const ratio = CHAR_TO_TOKEN_RATIOS[encoding] || 0.25;
-      return Math.round(text.length * ratio);
     }
     
     function escapeHtml(text) {
